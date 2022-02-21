@@ -15,6 +15,7 @@
 
                     <el-menu-item index="5">
                       <el-input  placeholder="Пораметры поиска "  v-model="input">
+                        </el-input>
                       </el-menu-item>
 
                     
