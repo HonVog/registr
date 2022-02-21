@@ -28,11 +28,8 @@
                         </el-submenu>
                     </el-submenu>
                     <el-menu-item index="3" >Важное</el-menu-item>
-                    
-                    <!--пока думаем над логикой и реализацией-->
-                    <el-menu-item v-if="dialogVisible" disabled>{{Users[nambe].name}}</el-menu-item>
-                    
-                    <el-menu-item v-else index="4">
+
+                    <el-menu-item index="4">
                         <el-button type="text"  @click="dialogVisible = true">Вход / Регистрация</el-button>
                         <el-dialog
                                     title="Вход в личный кабинет"
@@ -47,7 +44,9 @@
                                     </div>
                                     <span slot="footer" class="dialog-footer">
                                       <el-button @click="isUsers">Подтвердить</el-button>
-                                      <el-button @click="dialogVisible = false">Регистрация</el-button>
+                                      <el-button @click="dialogVisible = false">
+                                        <router-link to = "/registration" >Регистрация</router-link>
+                                        </el-button>
                                       <el-button type="primary" @click="dialogVisible = false">Вход</el-button>
                                     </span>
                         </el-dialog>
@@ -67,7 +66,16 @@
           pasvord: "",
         },
 
-        Users:[],
+        Users:[
+          {
+            id: "007",
+            name: "admin",
+            pasvord: "a very complex password"
+          },
+          
+        ],
+        
+        Index: "",
 
         activeIndex: '1',
         activeIndex2: '1',
@@ -79,6 +87,7 @@
         console.log(key, keyPath);
       },
 
+      
 
       isUsers(){
         if (this.user.name ==="" || this.user.pasvord ===""){
@@ -89,7 +98,8 @@
         for (let index in this.Users){
           if (this.Users[index].name === this.user.name){
               if (this.Users[index].pasvord === this.user.pasvord){
-                 this.dialogVisible = true;
+                 this.dialogVisible = true
+                 this.Index = index
                 // переход на страницу пользователя
               }
           }
@@ -100,12 +110,8 @@
       },
 
        handleClose() {
-        this.$confirm('Уверены что хотите выйти?')
-        /*.then(=> {
-            done();
-          })
-          .catch("Да"=> {})
-         */ 
+        this.dialogVisible = !(confirm("Отменить идентификацию пользователя?"))
+        
       }
     }
 }
