@@ -1,19 +1,97 @@
-# proba
+# Красивенький сайтик с тупенькой логикой
+![catProgramer](https://s5-goods.ozstatic.by/2000/508/886/10/10886508_0.jpg) 
+
+## Шаг 1. Подготовка
+1. старт всегда один
+```
+vue create .  //папка проекта с маленькой буквы!! 
+```
+2. выбираем настройки 
+> нам нужна 2 версия vue  это важно иначе работать не будет
+> рекомендуем использовать routes подключить через терминал не вышло
+
+3. Устанавливаем Element 
+```
+npm i element-ui -S
+```
+
+
+4. переходим в в main.js меняем cодержимое
+```js
+import Vue from 'vue';
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+import App from './App.vue';
+
+Vue.use(ElementUI);
+
+Vue.config.productionTip = false
+
+new Vue({
+  render: h => h(App),
+}).$mount('#app')
+```
+> С этого момента мы можем с чистой духой воровать все  с https://element.eleme.io/
+>> как правило к vue обектам прилогаеться легкая логика и стили, их можно игнорировать и удалять, главное не напартачить
+
+5. Вводим:
+```
+ npm run serve
+ ```
+  в терминал и смотрим что натворили
+
+## Шаг 2. Реализация по тех заданию
+### ТЗ. 
+1. Главная страница сайта с регистрацией пользователя 
+2. Страница регистрации с вводом данных
+3. Переход на главную страницу потом на страницу пользователя при воде логин-пароль
+4. Реализация страницы пользователя
+> дизайн и форма ограничены лишь отбитостью програмиста
+
+### Реализация. Щаг 1. 
+1. работаем в папке src. Создаем отдельную папку  под компаненыты назваем ее как не странно components
+2. \ В папке создаем фаил с расширением .vue назваем обязательно с заглавной буквы!!!
+3. базово заполняем фаилего на базе имеем
+```js
+<template>
+  <!--Сюда мы закидываем код который реализуеться-->
+</template>
+
+<script>
+ // здесь скрипты и логика
+export default {
+
+}
+</script>
+
+<style >
+// тут СSS  вернее SCSS со всеми его замутами
+</style>
+```
+3. Заполняем поля. Нам нужно:
+   * Базовый макет находиться в https://element.eleme.io/#/en-US/component/container 
+   * подбираем цвет отступы всякую красоту
+
+
+
+
+
+
 
 ## Project setup
 ```
 npm install
 ```
-
 ### Compiles and hot-reloads for development
 ```
 npm run serve
 ```
-
 ### Compiles and minifies for production
 ```
 npm run build
 ```
+### Lints and fixes files
+```
+npm run lint
+```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
