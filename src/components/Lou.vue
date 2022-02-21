@@ -13,8 +13,11 @@
                     
                     <el-menu-item index="1">Главная страница</el-menu-item>
 
-                    <el-menu-item index="5"><el-input  placeholder="Пораметры поиска" v-model="input"></el-input></el-menu-item>
+                    <el-menu-item index="5">
+                      <el-input  placeholder="Пораметры поиска "  v-model="input">
+                      </el-menu-item>
 
+                    
                     <el-submenu index="2">
                         <template slot="title">Выбрать</template>
                         <el-menu-item index="2-1">Что-то 1</el-menu-item>

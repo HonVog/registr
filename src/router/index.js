@@ -9,9 +9,13 @@ const routes = [
     component: ()=>import("../pajes/Main")
   },
   {
-    path: '/registr',
+    path: '/users',
     component: ()=>import("../pajes/User")
-  }
+  },
+  {
+    path: '/registration',
+    component: ()=>import("../pajes/UserRegistr")
+  },
 ]
 
 const router = new VueRouter({
